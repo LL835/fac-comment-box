@@ -11,12 +11,13 @@ h2{
     color: #17C3B2;
 }
 
-#comment-form{
+#comment-form, #comment-box{
     max-width: 600px;
     padding: 1rem 1rem;
     background: #FEF9EF;
     color: #227C9D;
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+    margin: 1.5rem auto;
 }
 
 .form-section{
