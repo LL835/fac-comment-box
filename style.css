@@ -1,0 +1,75 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Karla', sans-serif;
+}
+
+body{
+    background: #F1F7ED;
+}
+
+h2{
+    color: #17C3B2;
+}
+
+#comment-form{
+    max-width: 600px;
+    padding: 1rem 1rem;
+    background: #FEF9EF;
+    color: #227C9D;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.form-section{
+    width: 100%;
+    margin: 1rem 0;
+}
+
+label{
+    max-width: 100px;
+    display: inline-block;
+    padding: 0.5rem 0;
+}
+
+input[type="text"], [type="email"]{
+    width: 350px;
+    padding: 0.5rem 0.5rem;
+    float: right;
+    background: #F1F7ED;
+    border: solid 1px #227C9D;
+}
+
+input:focus{
+    border:none;
+    outline: solid 2px #17C3B2
+}
+
+textarea{
+    background: #F1F7ED;
+    border: solid 1px #227C9D;
+    width: 100%;
+    margin: 1rem 0 0.25rem;
+    padding: 0.5rem 0.5rem;
+}
+
+textarea:focus{
+    border:none;
+    outline: solid 2px #17C3B2 
+}
+
+#character-counter{
+    float: right;
+    font-size: 0.9rem;
+}
+
+#submit-button{
+    background: #17C3B2;
+    color: #F1F7ED;
+    border: none;
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+#submit-button:hover{
+    background: #227C9D
+}

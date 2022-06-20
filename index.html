@@ -5,11 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content ="A comment box to post messages">
+    <link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
     <script src="index.js" defer></script>
     <title>Comment Box</title>
 </head>
 <body>
+    <form id="comment-form">
+        <h2>Add a comment</h2>
+        <div class="form-section">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name (required)">
+        </div>
+
+        <div class="form-section">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email (optional)">
+        </div>
+
+        <div class="form-section">
+            <label for="comment">Message:</label><br>
+            <textarea id="comment" name="comment" placeholder="Write message"></textarea>
+            <div id="character-counter">0/140 characters</div>
+        </div>
+
+        <div class="form-section">
+            <input type="submit" value="Submit" id="submit-button">
+        </div>
+    </form>
     
 </body>
 </html>
