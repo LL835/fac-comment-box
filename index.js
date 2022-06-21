@@ -5,7 +5,8 @@ const submitCommentButton = document.getElementById("submit-button");
 const commentBox = document.getElementById("comment-box");
 const placeholderComment = document.querySelector(".no-comments-atm");
 const commentLog = document.querySelector(".comment-log");
-const characterCount = document.getElementById("character-counter")
+const characterCount = document.getElementById("character-counter");
+const commentForm = document.getElementById("comment-form")
 
 submitCommentButton.addEventListener("click", (e) => {
     e.preventDefault();
@@ -15,13 +16,18 @@ submitCommentButton.addEventListener("click", (e) => {
 authorComment.addEventListener("keyup", updateCharacterCounter)
 
 function processNewComment(){
-    if (author.value === "" || authorComment.value === "") return; // Check if the user has entered a name and comment. 
+    if (author.value === "" || authorComment.value === "" || authorComment.value.length > 140) {
+        displayErrorMessage();
+        return
+    }
 
     const newComment = document.createElement("div"); // Create a container for a new comment
     newComment.style.margin = "1rem 0";
     newComment.style.boxShadow = "0 0 5px 2px rgba(0, 0, 0, 0.2)";
     newComment.style.background = "rgb(255, 203, 119, 0.2)";
-    newComment.style.padding = "0.25rem 0.5rem"
+    newComment.style.padding = "0.25rem 0.5rem";
+    newComment.style.width="100%"
+    newComment.style.wordBreak= "break-word";
 
     const newCommentAuthor = document.createElement("div"); // Create a container to display the author's name;
     newCommentAuthor.textContent = author.value;
@@ -32,7 +38,6 @@ function processNewComment(){
     const newCommentText = document.createElement("div"); // Create a container to display the message;
     newCommentText.textContent = authorComment.value;
     newCommentText.style.color = "#303030";
-
 
     if (commentBox.contains(placeholderComment)) {
         placeholderComment.remove(); // remove the comment "There aren't any comments at the moment" after the first comment has been posted
@@ -48,8 +53,11 @@ function clearForm(){
     author.value = "";
     authorEmail.value =  "";
     authorComment.value= "";
-    characterCount.textContent = "0/140 characters"
-
+    characterCount.textContent = "0/140 characters";
+    const error = document.getElementById("error-message");
+    if (commentForm.contains(error)){
+        error.remove()
+    }
 }
 
 function updateCharacterCounter(){
@@ -63,3 +71,14 @@ function updateCharacterCounter(){
     }
 }
 
+function displayErrorMessage(){
+    const createErrorMessage = document.createElement("div");
+    createErrorMessage.id = "error-message";
+    createErrorMessage.style.color = "rgb(254, 44, 84)"
+    createErrorMessage.textContent = "* Please make sure you have entered a name and a comment that is under 140 characters.";
+    const errorMessage = document.getElementById("error-message");
+    if (commentForm.contains(errorMessage)){
+        errorMessage.remove()
+    }
+    commentForm.appendChild(createErrorMessage);
+}
