@@ -39,6 +39,12 @@ input[type="text"], [type="email"]{
     border: solid 1px #227C9D;
 }
 
+@media (max-width: 450px){
+    input[type="text"], [type="email"]{
+        width: 100%;
+    }
+}
+
 input:focus{
     border:none;
     outline: solid 2px #17C3B2
