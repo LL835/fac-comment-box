@@ -5,11 +5,14 @@ const submitCommentButton = document.getElementById("submit-button");
 const commentBox = document.getElementById("comment-box");
 const placeholderComment = document.querySelector(".no-comments-atm");
 const commentLog = document.querySelector(".comment-log");
+const characterCount = document.getElementById("character-counter")
 
 submitCommentButton.addEventListener("click", (e) => {
     e.preventDefault();
     processNewComment();
 })
+
+authorComment.addEventListener("keyup", updateCharacterCounter)
 
 function processNewComment(){
     if (author.value === "" || authorComment.value === "") return; // Check if the user has entered a name and comment. 
@@ -40,11 +43,23 @@ function processNewComment(){
     clearForm()
 
 }
-// use this pink for errors #FE2C54
 
 function clearForm(){
     author.value = "";
     authorEmail.value =  "";
     authorComment.value= "";
+    characterCount.textContent = "0/140 characters"
 
 }
+
+function updateCharacterCounter(){
+    const commentLength = authorComment.value.length
+    characterCount.textContent = `${commentLength}/140 characters`;
+
+    if (commentLength > 140) {
+        authorComment.style.background = "rgb(254, 44, 84, 0.4)";
+    } else {
+        authorComment.style.background = "#F1F7ED"
+    }
+}
+
