@@ -1,4 +1,4 @@
-#fac-comment box
+# fac-comment box
 A comment box that lets users write a message and post it to the box on the page. The goal of this project was to create a comment box that:
 
 * Uses HTML form elements.
